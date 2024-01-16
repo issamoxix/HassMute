@@ -7,6 +7,12 @@
 *.dll
 *.so
 *.dylib
+*.rar
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
 
 # Test binary, built with `go test -c`
 *.test

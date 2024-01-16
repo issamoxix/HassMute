@@ -9,7 +9,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 
 	"github.com/eiannone/keyboard"
 	"github.com/getlantern/systray"
@@ -21,6 +20,8 @@ const (
 	MOD_SHIFT = 0x0004
 	H_KEY     = 0x48
 )
+
+var isMuted bool = false
 
 var (
 	kb keybd_event.KeyBonding
@@ -67,13 +68,16 @@ func run() {
 		select {
 		case <-hk.Keydown():
 			// log.Printf("hotkey: %v is down\n", hk)
-			utils.SoundEffect()
-			mute.Mute()
+			utils.SoundEffect(isMuted)
+			if mute.Mute() {
+				isMuted = !isMuted
+			}
+
 			// case <-hk.Keyup():
 			// log.Printf("hotkey: %v is up\n", hk)
 		}
 
-		time.Sleep(100 * time.Millisecond)
+		// time.Sleep(100 * time.Millisecond)
 	}
 }
 

@@ -11,13 +11,15 @@ const (
 	APPCOMMAND_MICROPHONE_VOLUME_MUTE = 0x180000
 )
 
-func Mute() {
+func Mute() bool {
 	hwndActive := win.GetForegroundWindow()
 	result := win.SendMessage(hwndActive, WM_APPCOMMAND, 0, uintptr(APPCOMMAND_MICROPHONE_VOLUME_MUTE))
 
 	if result == 0 {
 		fmt.Println("Microphone volume muted.")
+		return true
 	} else {
 		fmt.Printf("Error sending message: %d\n", result)
+		return false
 	}
 }

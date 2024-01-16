@@ -10,8 +10,15 @@ import (
 	"github.com/faiface/beep/speaker"
 )
 
-func SoundEffect() {
-	f, err := os.Open("assets/sound.mp3")
+func SoundEffect(isMuted bool) {
+	var fileName string = "assets/"
+	if isMuted {
+		fileName += "unmute.mp3"
+	} else {
+		fileName += "mute.mp3"
+	}
+	f, err := os.Open(fileName)
+
 	if err != nil {
 		log.Fatal(err)
 	}
