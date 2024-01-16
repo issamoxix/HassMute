@@ -4,6 +4,7 @@ go 1.21.0
 
 require (
 	github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203
+	github.com/faiface/beep v1.1.0
 	github.com/getlantern/systray v1.2.2
 	github.com/lxn/win v0.0.0-20210218163916-a377121e959e
 	github.com/micmonay/keybd_event v1.1.2
@@ -20,12 +21,17 @@ require (
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
+	github.com/hajimehoshi/go-mp3 v0.3.0 // indirect
+	github.com/hajimehoshi/oto v0.7.1 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	go.opentelemetry.io/otel v1.21.0 // indirect
 	go.opentelemetry.io/otel/metric v1.21.0 // indirect
 	go.opentelemetry.io/otel/trace v1.21.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.26.0 // indirect
-	golang.design/x/mainthread v0.3.0 // indirect
+	golang.org/x/exp v0.0.0-20190306152737-a1d7652674e8 // indirect
+	golang.org/x/image v0.0.0-20190227222117-0694c2d4d067 // indirect
+	golang.org/x/mobile v0.0.0-20190415191353-3e0bab5405d6 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 )

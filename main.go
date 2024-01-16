@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	mute "hassmute/muting"
+	"hassmute/utils"
 	"io/ioutil"
 	"log"
 	"os"
@@ -51,7 +52,8 @@ func onExit() {
 }
 
 func run() {
-	hk := hotkey.New([]hotkey.Modifier{hotkey.ModCtrl}, hotkey.KeyA)
+	hk := hotkey.New([]hotkey.Modifier{}, hotkey.KeyF17)
+	// hk := hotkey.New([]hotkey.Modifier{}, hotkey.KeyF10)
 	err := hk.Register()
 	if err != nil {
 		log.Fatalf("hotkey: failed to register hotkey: %v", err)
@@ -64,10 +66,11 @@ func run() {
 	for {
 		select {
 		case <-hk.Keydown():
-			log.Printf("hotkey: %v is down\n", hk)
+			// log.Printf("hotkey: %v is down\n", hk)
+			utils.SoundEffect()
 			mute.Mute()
-		case <-hk.Keyup():
-			log.Printf("hotkey: %v is up\n", hk)
+			// case <-hk.Keyup():
+			// log.Printf("hotkey: %v is up\n", hk)
 		}
 
 		time.Sleep(100 * time.Millisecond)
@@ -108,7 +111,7 @@ func onReady() {
 }
 
 func getIconData() []byte {
-	iconFilePath := "icon.ico" // Replace with the actual file path of the icon file
+	iconFilePath := "assets/icon.ico" // Replace with the actual file path of the icon file
 	iconData, err := ioutil.ReadFile(iconFilePath)
 	if err != nil {
 		log.Fatal(err)
